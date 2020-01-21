@@ -55,11 +55,11 @@
 		13A26E8323D6CE9F00518BA0 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E6B23D6CE9D00518BA0 /* UIImageView+WebCache.m */; };
 		13A26E8423D6CE9F00518BA0 /* UIImage+AltaImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E7023D6CE9E00518BA0 /* UIImage+AltaImage.m */; };
 		13A26E8623D6CEA400518BA0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E8523D6CEA400518BA0 /* UIFont.swift */; };
-		13A26E8A23D6CED900518BA0 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E8823D6CED900518BA0 /* FAIcon.swift */; };
-		13A26E8B23D6CED900518BA0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13A26E8923D6CED900518BA0 /* FontAwesome.ttf */; };
 		13A26E8D23D6D0F200518BA0 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E8C23D6D0F200518BA0 /* DeviceInfo.swift */; };
 		13A26E8F23D6D22800518BA0 /* FODataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E8E23D6D22800518BA0 /* FODataUtils.swift */; };
 		13A26E9123D6DB9200518BA0 /* FOUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E9023D6DB9200518BA0 /* FOUserDefault.swift */; };
+		13A26E9423D6DDD800518BA0 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E9223D6DDD800518BA0 /* FAIcon.swift */; };
+		13A26E9523D6DDD800518BA0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13A26E9323D6DDD800518BA0 /* FontAwesome.ttf */; };
 		53EDD11A23BF9964002B9FB0 /* ServerCommunication.h in Headers */ = {isa = PBXBuildFile; fileRef = 53EDD11823BF9964002B9FB0 /* ServerCommunication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53EDD12123BF9FC9002B9FB0 /* ServerComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDD12023BF9FC9002B9FB0 /* ServerComm.swift */; };
 /* End PBXBuildFile section */
@@ -135,11 +135,11 @@
 		13A26E7A23D6CE9F00518BA0 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		13A26E7B23D6CE9F00518BA0 /* UIImage+GIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		13A26E8523D6CEA400518BA0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		13A26E8823D6CED900518BA0 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
-		13A26E8923D6CED900518BA0 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		13A26E8C23D6D0F200518BA0 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		13A26E8E23D6D22800518BA0 /* FODataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FODataUtils.swift; sourceTree = "<group>"; };
 		13A26E9023D6DB9200518BA0 /* FOUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOUserDefault.swift; sourceTree = "<group>"; };
+		13A26E9223D6DDD800518BA0 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		13A26E9323D6DDD800518BA0 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		53EDD11523BF9964002B9FB0 /* ServerCommunication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServerCommunication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EDD11823BF9964002B9FB0 /* ServerCommunication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerCommunication.h; sourceTree = "<group>"; };
 		53EDD11923BF9964002B9FB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -258,8 +258,8 @@
 		13A26E8723D6CECF00518BA0 /* Font Awesome */ = {
 			isa = PBXGroup;
 			children = (
-				13A26E8823D6CED900518BA0 /* FAIcon.swift */,
-				13A26E8923D6CED900518BA0 /* FontAwesome.ttf */,
+				13A26E9223D6DDD800518BA0 /* FAIcon.swift */,
+				13A26E9323D6DDD800518BA0 /* FontAwesome.ttf */,
 			);
 			path = "Font Awesome";
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A26E8B23D6CED900518BA0 /* FontAwesome.ttf in Resources */,
+				13A26E9523D6DDD800518BA0 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +395,7 @@
 				13A26E3D23D6CD7600518BA0 /* SDImageCacheConfig.m in Sources */,
 				13A26E8F23D6D22800518BA0 /* FODataUtils.swift in Sources */,
 				13A26E8D23D6D0F200518BA0 /* DeviceInfo.swift in Sources */,
+				13A26E9423D6DDD800518BA0 /* FAIcon.swift in Sources */,
 				13A26DFB23D6C4B800518BA0 /* FOJsonDecoder.swift in Sources */,
 				53EDD12123BF9FC9002B9FB0 /* ServerComm.swift in Sources */,
 				13A26E3C23D6CD7600518BA0 /* SDImageCache.m in Sources */,
@@ -413,7 +414,6 @@
 				13A26E6223D6CD9800518BA0 /* SDWebImageManager.m in Sources */,
 				13A26E0723D6C98600518BA0 /* FOLoader.swift in Sources */,
 				13A26E6723D6CD9800518BA0 /* SDWebImagePrefetcher.m in Sources */,
-				13A26E8A23D6CED900518BA0 /* FAIcon.swift in Sources */,
 				13A26E4023D6CD7600518BA0 /* MKAnnotationView+WebCache.m in Sources */,
 				13A26E2823D6CD2D00518BA0 /* UIScrollView.swift in Sources */,
 				13A26E2923D6CD2D00518BA0 /* UITableView.swift in Sources */,
