@@ -40,13 +40,18 @@ open class ServerComm : NSObject {
         return "\(initialPathUrl())\(relativeURL)"
     }
     
-    public func doRequest(_ relativeURL : String, RequestParam : RequestParam? = nil,success:@escaping (Any)-> Void, failure: (([String : Any]) ->Void)? = nil){
+    public func doRequest(_ relativeURL : String, RequestParam : RequestParam? = nil,isGetRequest : Bool? = false, success:@escaping (Any)-> Void, failure: (([String : Any]) ->Void)? = nil){
         let urlString = self.authAjaxUrl(relativeURL)
-        self.request(urlString, contentType: nil, RequestParam: RequestParam, success: success, failure: failure)
+        self.request(urlString, contentType: nil, RequestParam: RequestParam,isGetRequest: isGetRequest , success: success, failure: failure)
     }
     
-    public func request(_ urlString:String, contentType : String?, RequestParam : RequestParam? = nil,  success:@escaping (Any)->Void, failure:(([String : Any]) ->Void)? = nil) {
-        if !(RequestParam?.isProgressLoaderHidden ?? true) {
+    public func request(_ urlString:String, contentType : String?, RequestParam : RequestParam? = nil,isGetRequest : Bool? = false,  success:@escaping (Any)->Void, failure:(([String : Any]) ->Void)? = nil) {
+        if let _ = isGetRequest {
+            DispatchQueue.main.async {
+                FOLoader.shared.add()
+            }
+        }
+        if !(RequestParam?.isProgressLoaderHidden ?? true){
             FOLoader.shared.add()
         }
         let url: URL?
@@ -72,7 +77,7 @@ open class ServerComm : NSObject {
         }else{
             request.httpMethod = "GET"
         }
-        self.requestWithHttpRequest(request as URLRequest, RequestParam: RequestParam, success: success, failure: failure)
+        self.requestWithHttpRequest(request as URLRequest, RequestParam: RequestParam,isGetRequest: isGetRequest, success: success, failure: failure)
     }
     
     public func  processPendingRequest(){
@@ -80,7 +85,7 @@ open class ServerComm : NSObject {
         self.requestWithHttpRequest(currentRequest!, success: successBlock, failure: failureBlock)
     }
     
-    public func requestWithHttpRequest(_ urlRequest :URLRequest, RequestParam : RequestParam? = nil, success:@escaping (Any)->Void, failure: (([String : Any]) ->Void)? = nil){
+    public func requestWithHttpRequest(_ urlRequest :URLRequest, RequestParam : RequestParam? = nil, isGetRequest : Bool? = false, success:@escaping (Any)->Void, failure: (([String : Any]) ->Void)? = nil){
         self.currentRequest = urlRequest
         self.successBlock = success
         if failure != nil { self.failureBlock = failure }
@@ -90,18 +95,18 @@ open class ServerComm : NSObject {
                 DispatchQueue.main.async {
                     if error != nil {
                         if !(RequestParam?.isProgressLoaderHidden ?? false) {
-                            if !(RequestParam?.isProgressLoaderHidden ?? true) {
+                            if (!(RequestParam?.isProgressLoaderHidden ?? true) || (isGetRequest ?? false)) {
                                 FOLoader.shared.remove()
                             }
                             //Add Alert PopUp for Network error
-//                            Utils.showNetworkAlert(error!, closure: failure)
+                            //                            Utils.showNetworkAlert(error!, closure: failure)
                         }
                     }else{
                         //Handle Failure
                         func handleFailure(_ failureDict : [String : Any]){
                             if failure == nil {
                                 //Add Currentcontroller for showing error toast
-//                                Utils.currentController().addErrorToast(failureDict["Message"] as! String)
+                                //                                Utils.currentController().addErrorToast(failureDict["Message"] as! String)
                             }else{
                                 failure!(failureDict)
                             }
@@ -120,7 +125,7 @@ open class ServerComm : NSObject {
                             }
                         }
                     }
-                    if !(RequestParam?.isProgressLoaderHidden ?? true) {
+                    if (!(RequestParam?.isProgressLoaderHidden ?? true) || (isGetRequest ?? false)) {
                         FOLoader.shared.remove()
                     }
                 }
